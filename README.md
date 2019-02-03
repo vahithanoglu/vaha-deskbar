@@ -4,11 +4,11 @@
 A desktop application to organize your shortcuts and keep your desktop clean.
 
 #### What is its benefit?
-To prevent crowdedness of your desktop due to many shortcuts, you can create as much deskbars as you want and group your shortcuts under them. 
+To prevent the crowdedness of your desktop due to many shortcuts, you can create as much deskbars as you want and group your shortcuts under them. 
 
 Deskbars are icon-sized floating components which are always displayed over other windows on your desktop. 
 
-Without any interaction only always-on-top deskbars are displayed on your desktop. When you click on them shortcuts are displayed within a popup menu.
+Without any interaction, only always-on-top deskbars are displayed on your desktop. When you click on them, shortcuts are displayed within a popup menu.
 
 #### What kind of shortcuts can be added to deskbars?
 You can create shortcuts for the following types:
