@@ -20,3 +20,8 @@ You can create shortcuts for the following types:
   - .exe and .bat files (on Windows)
 
 - Custom commands: Any command that can be executed by OS runtime
+
+#### Screenshots
+![](./screenshot1.png)
+
+![](./screenshot2.png)
