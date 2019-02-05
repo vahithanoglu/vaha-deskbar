@@ -1,4 +1,4 @@
-# vaha-deskbar
+# vaha-deskbar (JDK 11 required)
 
 #### What is it?
 A desktop application to organize your shortcuts and keep your desktop clean.
