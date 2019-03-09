@@ -7,7 +7,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-import java.util.stream.Stream;
+import java.util.stream.Collectors;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.ParallelGroup;
 import javax.swing.GroupLayout.SequentialGroup;
@@ -15,6 +15,7 @@ import javax.swing.JComponent;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.ScrollPaneConstants;
+import javax.swing.SwingUtilities;
 
 public abstract class AbstractListPane<D, I extends AbstractListItem<D>> extends JScrollPane implements MouseListener {
 
@@ -23,6 +24,8 @@ public abstract class AbstractListPane<D, I extends AbstractListItem<D>> extends
     public abstract void onItemSelected(I item);
 
     public abstract void onItemDoubleClicked(I item);
+
+    public abstract void onItemRightClicked(I item, int x, int y);
 
     private final Map<String, I> itemMap;
 
@@ -57,6 +60,12 @@ public abstract class AbstractListPane<D, I extends AbstractListItem<D>> extends
 
     public int getCount() {
         return itemMap.size();
+    }
+
+    public List<D> getList() {
+        return itemMap.values().stream()
+                .map(item -> item.getData())
+                .collect(Collectors.toList());
     }
 
     public void setAutoSelect(boolean autoSelect) {
@@ -143,14 +152,20 @@ public abstract class AbstractListPane<D, I extends AbstractListItem<D>> extends
 
     @Override
     public void mouseClicked(MouseEvent evt) {
-        switch (evt.getClickCount()) {
-            case 2:
-                onItemDoubleClicked((I) evt.getComponent());
-                break;
+        if (SwingUtilities.isRightMouseButton(evt)) {
+            setSelectedItem((I) evt.getComponent());
+            onItemRightClicked((I) evt.getComponent(), evt.getX(), evt.getY());
 
-            default:
-                setSelectedItem((I) evt.getComponent());
-                break;
+        } else if (SwingUtilities.isLeftMouseButton(evt)) {
+            switch (evt.getClickCount()) {
+                case 2:
+                    onItemDoubleClicked((I) evt.getComponent());
+                    break;
+
+                default:
+                    setSelectedItem((I) evt.getComponent());
+                    break;
+            }
         }
     }
 

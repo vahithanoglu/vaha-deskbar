@@ -38,7 +38,7 @@ public class IconManager {
             APP_MAP.put(res, new ImageIcon(IconManager.class.getResource(String.format(APP_PKG_TEMPLATE, res))));
         }
 
-        for (String btn : new String[]{"browse", "choose", "computer", "delete", "deskbar", "edit", "exit", "home", "parent", "run", "save", "shortcut", "settings"}) {
+        for (String btn : new String[]{"browse", "choose", "computer", "delete", "deskbar", "edit", "exit", "home", "icon", "parent", "run", "save", "shortcut", "settings"}) {
             BUTTON_MAP.put(btn, new ImageIcon(IconManager.class.getResource(String.format(BUTTON_PKG_TEMPLATE, btn))));
         }
 

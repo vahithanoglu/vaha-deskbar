@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.vahabilisim</groupId>
     <artifactId>deskbar</artifactId>
-    <version>1.0-20190205</version>
+    <version>1.0-20190309</version>
     <packaging>jar</packaging>
     <name>VAHADeskbar</name>
     

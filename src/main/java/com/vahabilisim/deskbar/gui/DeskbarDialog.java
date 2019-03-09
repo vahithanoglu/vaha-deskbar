@@ -58,9 +58,11 @@ public final class DeskbarDialog extends JDialog implements ActionListener, Mous
         iconLabel.setPreferredSize(DEFAULT_DIMENSION);
 
         popupMenu = new JPopupMenu();
-        popupMenu.add(new JMenuItem("Settings", IconManager.getButtonIcon("settings")))
+        popupMenu.add(new JMenuItem("Settings",
+                IconManager.getButtonIcon("settings")))
                 .addActionListener(this);
-        popupMenu.add(new JMenuItem("Exit", IconManager.getButtonIcon("exit")))
+        popupMenu.add(new JMenuItem("Exit",
+                IconManager.getButtonIcon("exit")))
                 .addActionListener(this);
 
         shortcutsMenu = new ShortcutsMenu(this, this);
@@ -117,7 +119,7 @@ public final class DeskbarDialog extends JDialog implements ActionListener, Mous
                     if (SwingUtilities.isRightMouseButton(evt)) {
                         popupMenu.show(comp, evt.getX(), evt.getY());
 
-                    } else {
+                    } else if (SwingUtilities.isLeftMouseButton(evt)) {
                         shortcutsMenu.show(comp, comp.getWidth(), comp.getHeight());
                     }
                 });

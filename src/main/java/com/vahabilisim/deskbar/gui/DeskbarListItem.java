@@ -44,10 +44,6 @@ public class DeskbarListItem extends AbstractListItem<Deskbar> {
         setSeleted(false);
     }
 
-//    public Deskbar getDeskbar() {
-//        return deskbar;
-//    }
-
     @Override
     public Deskbar getData() {
         return deskbar;

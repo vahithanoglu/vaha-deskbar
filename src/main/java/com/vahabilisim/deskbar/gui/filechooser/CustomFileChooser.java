@@ -10,8 +10,6 @@ import java.awt.event.ActionListener;
 import java.io.File;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 import javax.swing.BorderFactory;
 import javax.swing.GroupLayout;
 import javax.swing.JButton;
@@ -73,7 +71,7 @@ public class CustomFileChooser extends JDialog implements ActionListener {
 
         chooseButton = new JButton("Choose", IconManager.getButtonIcon("choose"));
         chooseButton.setActionCommand("Choose File");
-        chooseButton.setToolTipText("Choose the selected file");
+        chooseButton.setToolTipText("Choose the file");
         chooseButton.addActionListener(this);
 
         fileListPane = new AbstractListPane<CustomFile, FileListItem>() {
@@ -94,6 +92,10 @@ public class CustomFileChooser extends JDialog implements ActionListener {
                         .ifPresent(file -> {
                             setCurrentDirectory(file.getAbsolutePath());
                         });
+            }
+
+            @Override
+            public void onItemRightClicked(FileListItem item, int x, int y) {
             }
         };
 
